@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Park.example.mapper.BoardMapper">
+
+<insert id="boardinsert" parameterType="board">
+	INSERT INTO	dogboard (
+			b_category,
+			b_title,
+			b_content,
+			b_id,
+			b_price,
+			b_inventory,
+			b_from
+		) VALUES (
+			#{b_category},
+			#{b_title},
+			#{b_content},
+			#{b_id},
+			#{b_price},
+			#{b_inventory},
+			#{b_from}	
+		)
+</insert>		
+<select id="productPage" resultType="Board">
+	SELECT			b_idx				as b_idx,
+					b_category			as b_category,
+					b_title				as b_title,
+					b_content			as b_content,
+					b_price				as b_price,
+					b_inventory			as b_inventory
+	
+	FROM			dogboard
+</select>
+
+<update id="productEdit" parameterType="Board">
+	UPDATE			dogboard
+	SET					b_title = #{b_title},
+						b_category = #{b_category},
+						b_content = #{b_content},
+						b_price = #{b_price},
+						b_inventory = #{b_inventory},
+						b_from = #{b_from},
+						b_id = #{b_id}
+	WHERE			b_idx = #{b_idx}
+</update>
+
+<select id="productDetail" parameterType="int" resultType="Board">
+	SELECT			b_idx				as b_idx,
+					b_category			as b_category,
+					b_title				as b_title,
+					b_content			as b_content,
+					b_price				as b_price,
+					b_inventory			as b_inventory,
+					b_from				as b_from,
+					b_id						as b_id
+	
+	FROM			dogboard
+	WHERE			1 = 1
+	AND				b_idx = #{b_idx}
+</select>
+
+<delete id="productDelete" parameterType="int" >
+	DELETE 			
+	FROM			dogboard
+	WHERE			b_idx = #{b_idx}
+</delete>
+
+<select id="productCategory" resultType="Board">
+	SELECT 				* 
+	FROM 				dogboard 
+	ORDER BY 			b_category;
+</select>
+
+</mapper>

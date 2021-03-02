@@ -1,0 +1,79 @@
+<template>
+  <div>
+     <v-main>
+      <v-container>
+    <div class="product_list_text"> 뼈다귀껌 </div>
+       <div class="product_container_box">
+         <div class="product_box">
+           <div class="product_box_img"></div>
+           <div class="product_box_text">
+             상품명
+             <p class="product_box_price">20,000원</p>
+           </div>
+         </div><!-- end of prouduct_box -->
+       
+       </div>
+      </v-container>
+    </v-main>
+  </div>
+</template>
+
+<style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
+
+.product_list_text {
+  font-size: 1.5rem;
+  color:#B80C00;
+  font-weight: 700;
+  font-family: 'Potta One', cursive;
+  text-align: center;
+}
+.product_list_text::after {
+  display: inline-block;
+  margin: 0 0 8px 20px;
+  height: 2px;
+  content: " ";
+  text-shadow: none;
+  background-color:#B80C00;
+  width:35%;
+}
+.product_list_text::before {
+  display: inline-block;
+  margin: 0 20px 8px 0;
+  height: 2px;
+  content: " ";
+  text-shadow: none;
+  background-color:#B80C00;
+  width:35%;
+}
+.product_container_box {
+  margin-top:30px;
+  padding:0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.product_box {
+  flex-basis:30%;
+  height:300px;
+  box-shadow: 3px 3px 4px #818181;
+  margin-bottom:15px;
+}
+.product_box_img {
+  height: 230px;
+  background-color:#ededed;
+}
+.product_box_text {
+  height: 70px;
+  line-height: 35px;
+  font-size:1.3rem;
+  font-weight: 700;
+  text-align: right;
+  margin:0 30px;
+  font-family: 'Sunflower', sans-serif;
+}
+.product_box_price {
+  font-weight: 400;
+  }
+</style>
