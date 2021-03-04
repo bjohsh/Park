@@ -5,14 +5,14 @@
        <div class="product_list_text"> 수제천연껌 </div>
        <div class="product_container_box">
          <div 
-            v-for="product in productCategory" 
+            v-for="product in productMenu1" 
             class="product_box"
          >
           <v-btn @click="productDetail2({b_idx: b_idx})">
            <div class="product_box_img"  ></div>
            <div class="product_box_text"> 
-             {{ b_title }}
-             <p class="product_box_price">{{ b_price }}원</p>
+             {{ product.b_title }}
+             <p class="product_box_price">{{ product.b_price }}원</p>
            </div>
           </v-btn>
          </div><!-- end of prouduct_box -->
@@ -27,10 +27,10 @@
 import {mapState} from 'vuex'
 export default {
   computed: {
-    ...mapState(['productCategory'])
+    ...mapState(['productMenu1'])
   },
   created() {
-    this.$store.dispatch('productCategory')
+    this.$store.dispatch('productMenu1')
   },
   methods: {
     productDetail2(payload) {

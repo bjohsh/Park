@@ -31,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.Park.example.config.JwtUtils;
 import com.Park.example.domain.Board;
 import com.Park.example.domain.Order;
+import com.Park.example.domain.Product;
 import com.Park.example.domain.User;
 import com.Park.example.domain.UserInfo;
 import com.Park.example.request.JoinRequest;
@@ -39,6 +40,8 @@ import com.Park.example.response.JwtResponse;
 import com.Park.example.service.UserService;
 import com.Park.example.service.BoardService;
 import com.Park.example.service.OrderService;
+import com.Park.example.service.ProductService;
+
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -67,6 +70,9 @@ public class AuthController {
 	
 	@Autowired
 	OrderService orderservice;
+	
+	@Autowired
+	ProductService productservice;
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Validated @RequestBody LoginRequest loginRequest) {
@@ -196,15 +202,41 @@ public class AuthController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
-	@GetMapping("/productCategory")
-	public ResponseEntity<?> productCategory() {
-		List<Board> list = boardservice.productCategory();
+	@GetMapping("/productMenu1")
+	public ResponseEntity<?> productMenu1() {
+		List<Board> list = boardservice.productMenu1();
 		
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
+	@GetMapping("/productMenu2")
+	public ResponseEntity<?> productMenu2() {
+		List<Board> list = boardservice.productMenu2();
+		
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
 	
+	@GetMapping("/productMenu3")
+	public ResponseEntity<?> productMenu3() {
+		List<Board> list = boardservice.productMenu3();
+		
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
 	
+	@GetMapping("/productMenu4")
+	public ResponseEntity<?> productMenu4() {
+		List<Board> list = boardservice.productMenu4();
+		
+		return new ResponseEntity<>(list, HttpStatus.OK);
+	}
+	
+	@PostMapping("/productCategory")
+	public ResponseEntity<?> productCategory() {
+		List<Product> list = productservice.productCategory();
+			
+		return new ResponseEntity<>(list, HttpStatus.OK);
+		
+	}
 	
 	
 	

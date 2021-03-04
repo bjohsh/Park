@@ -3,6 +3,7 @@ package com.Park.example.service;
 import java.util.List;
 
 import com.Park.example.domain.Board;
+import com.Park.example.domain.Product;
 
 public interface BoardService {
 
@@ -15,8 +16,14 @@ public interface BoardService {
 	public Board productDetail(int b_idx);
 
 	public void productDelete(int b_idx);
+
+	public List<Board> productMenu1();
+
+	public List<Board> productMenu2();
+
+	public List<Board> productMenu3();
 	
-	public List<Board> productCategory();
+	public List<Board> productMenu4();
 
 
 	}

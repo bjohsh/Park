@@ -31,7 +31,16 @@ public class BoardServiceImpl implements BoardService {
 	public void productDelete(int b_idx) {
 		boardmapper.productDelete(b_idx);
 	}
-	public List<Board> productCategory() {
-		return boardmapper.productCategory();
+	public List<Board> productMenu1() {
+		return boardmapper.productMenu1();
+	}
+	public List<Board> productMenu2() {
+		return boardmapper.productMenu2();
+	}
+	public List<Board> productMenu3() {
+		return boardmapper.productMenu3();
+	}
+	public List<Board> productMenu4() {
+		return boardmapper.productMenu4();
 	}
 }

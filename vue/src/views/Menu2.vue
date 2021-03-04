@@ -4,12 +4,17 @@
       <v-container>
        <div class="product_list_text"> 육포 & 저키 </div>
        <div class="product_container_box">
-         <div class="product_box">
-           <div class="product_box_img"></div>
-           <div class="product_box_text">
-             상품명
-             <p class="product_box_price">20,000원</p>
+         <div 
+            v-for="product in productMenu2" 
+            class="product_box"
+         >
+          <v-btn @click="productDetail2({b_idx: b_idx})">
+           <div class="product_box_img"  ></div>
+           <div class="product_box_text"> 
+             {{ product.b_title }}
+             <p class="product_box_price">{{ product.b_price }}원</p>
            </div>
+          </v-btn>
          </div><!-- end of prouduct_box -->
        
        </div>
@@ -17,6 +22,24 @@
     </v-main>
   </div>
 </template>
+
+<script>
+import {mapState} from 'vuex'
+export default {
+  computed: {
+    ...mapState(['productMenu2'])
+  },
+  created() {
+    this.$store.dispatch('productMenu2')
+  },
+  methods: {
+    productDetail2(payload) {
+      console.log(payload)
+      this.$store.dispatch("productDetail2", payload)
+    }
+  }
+}
+</script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');

@@ -17,7 +17,13 @@ public interface BoardMapper {
 
 	public void productDelete(int b_idx);
 
-	public List<Board> productCategory();
+	public List<Board> productMenu1();
+
+	public List<Board> productMenu2();
+
+	public List<Board> productMenu3();
+	
+	public List<Board> productMenu4();
 
 	
 }

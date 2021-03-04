@@ -2,9 +2,9 @@ package com.Park.example.domain;
 
 public class Board {
 	
-//	private static final long serialVersionUID = 1L;
 
 	private int b_idx;
+	private String p_idx;
 	private String b_category;
 	private String b_title;
 	private String b_content;
@@ -21,7 +21,12 @@ public class Board {
 	public void setB_idx(int b_idx) {
 		this.b_idx = b_idx;
 	}
-	
+	public String getP_idx() {
+		return p_idx;
+	}
+	public void setP_idx(String p_idx) {
+		this.p_idx = p_idx;
+	}
 	public String getB_category() {
 		return b_category;
 	}

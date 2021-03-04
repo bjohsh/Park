@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Route from '../router/index'
 import axios from 'axios'
+import createPersistedState from "vuex-persistedstate"
 // import { resolve } from 'core-js/fn/promise'
 Vue.use(Vuex)
 
@@ -56,6 +57,18 @@ export default new Vuex.Store({
    },
    READ_ORDER_MONTH(state,data) {
      state.orderMonth = data
+   },
+   READ_PRODUCT_MENU1(state,data) {
+    state.productMenu1 = data
+   },
+   READ_PRODUCT_MENU2(state,data) {
+    state.productMenu2 = data
+   },
+   READ_PRODUCT_MENU3(state,data) {
+    state.productMenu3 = data
+   },
+   READ_PRODUCT_MENU4(state,data) {
+    state.productMenu4 = data
    },
    READ_PRODUCT_CATEGORY(state,data) {
     state.productCategory = data
@@ -332,12 +345,65 @@ export default new Vuex.Store({
       })
     })
   },
+  productMenu1({commit,state}) {
+    return new Promise((resolve, reject) => {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
+      axios.get('http://localhost:9000/api/auth/productMenu1')
+        .then(Response => {
+          console.log(Response.data)
+          commit('READ_PRODUCT_MENU1',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+        })
+    })
+  },
+  productMenu2({commit,state}) {
+    return new Promise((resolve, reject) => {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
+      axios.get('http://localhost:9000/api/auth/productMenu2')
+        .then(Response => {
+          console.log(Response.data)
+          commit('READ_PRODUCT_MENU2',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+        })
+    })
+  },
+  productMenu3({commit,state}) {
+    return new Promise((resolve, reject) => {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
+      axios.get('http://localhost:9000/api/auth/productMenu3')
+        .then(Response => {
+          console.log(Response.data)
+          commit('READ_PRODUCT_MENU3',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+        })
+    })
+  },
+  productMenu4({commit,state}) {
+    return new Promise((resolve, reject) => {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
+      axios.get('http://localhost:9000/api/auth/productMenu4')
+        .then(Response => {
+          console.log(Response.data)
+          commit('READ_PRODUCT_MENU4',Response.data)
+        })
+        .catch(Error => {
+          console.log('error')
+        })
+    })
+  },
   productCategory({commit,state}) {
     return new Promise((resolve, reject) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
-      axios.get('http://3.36.159.227:9000/api/auth/productCategory')
+      axios.post('http://localhost:9000/api/auth/productCategory')
         .then(Response => {
           console.log(Response.data)
+          localStorage.setItem("product_p_category",Response.data.p_category)
           commit('READ_PRODUCT_CATEGORY',Response.data)
         })
         .catch(Error => {

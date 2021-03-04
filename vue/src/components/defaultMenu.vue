@@ -12,55 +12,46 @@
                   </v-list-item-content>
                 </v-list-item>
 
+                <div
+                  v-for="product in productCategory"
+                  >
                  <v-list-item
                   link
                   router :to="{name: 'Menu1'}"
                 >
                   <v-list-item-content>
                     <v-list-item-title>
-                      수제천연껌
+                      {{product.p_category}}
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
+                </div>
 
-                <v-list-item
-                  link
-                  router :to="{name: 'Menu2'}"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      육포&저키
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item
-                  link
-                  router :to="{name: 'Menu3'}"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      뼈다귀껌
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-list-item
-                  link
-                  router :to="{name: 'Menu4'}"
-                >
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      사료
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-
-               
               </v-list>
             </v-sheet>
 </template>
+
+<script>
+import {mapState} from 'vuex'
+export default {
+  data() {
+    return {
+      p_category: null
+    }
+  },
+  computed: {
+    ...mapState(['productCategory'])
+  },
+  created() {
+    this.$store.dispatch('productCategory')
+  },
+  methods: {
+     product_p_category() {
+       localStorage.getItem(this.product.p_category)
+     }
+  }
+}
+</script>
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Cute+Font&display=swap');
 div {
