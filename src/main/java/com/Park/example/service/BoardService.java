@@ -19,12 +19,6 @@ public interface BoardService {
 
 	public List<Board> productMenu1();
 
-	public List<Board> productMenu2();
-
-	public List<Board> productMenu3();
-	
-	public List<Board> productMenu4();
-
 
 	}
 

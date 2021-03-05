@@ -3,7 +3,7 @@
 <mapper namespace="com.Park.example.mapper.ProductMapper">
 
 <select id="productCategory" resultType="Product">
-	SELECT 					p_category
+	SELECT 					*
 	FROM 					product
 </select>
 

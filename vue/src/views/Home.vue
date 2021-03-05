@@ -12,6 +12,7 @@
          <div 
             v-for="product in productPage" 
             class="product_box"
+            :key="product.b_idx"
          >
           <v-btn @click="productDetail2({b_idx:product.b_idx})">
            <div class="product_box_img"  ></div>
@@ -43,10 +44,10 @@ export default {
     },
   created () {
       this.$store.dispatch('productPage')
+      
     },
     methods: {
       productDetail2(payload) {
-            console.log(payload)
             this.$store.dispatch("productDetail2", payload)
         }
     }

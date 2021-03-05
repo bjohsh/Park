@@ -9,10 +9,7 @@ import AdminPage from '../views/AdminPage.vue'
 import BoardWrite from '../views/BoardWrite.vue' 
 import ProductPage from '../views/ProductPage.vue'
 import ProductEdit from '../views/ProductEdit.vue'
-import Menu1 from '../views/Menu1.vue'
-import Menu2 from '../views/Menu2.vue'
-import Menu3 from '../views/Menu3.vue'
-import Menu4 from '../views/Menu4.vue'
+import Menu1 from '../views/ProductMenu1.vue'
 import ProductDetail2 from '../views/ProductDetail2.vue'
 import OrderPage from '../views/OrderPage.vue'
 import OrderCompleted from '../views/OrderCompleted.vue'
@@ -68,24 +65,9 @@ const routes = [
     component: ProductEdit
   },
   {
-    path: '/menu1',
-    name: 'Menu1',
+    path: '/productmenu1',
+    name: 'ProductMenu1',
     component: Menu1
-  },
-  {
-    path: '/menu2',
-    name: 'Menu2',
-    component: Menu2
-  },
-  {
-    path: '/menu3',
-    name: 'Menu3',
-    component: Menu3
-  },
-  {
-    path: '/menu4',
-    name: 'Menu4',
-    component: Menu4
   },
   {
     path: '/productdetail2',

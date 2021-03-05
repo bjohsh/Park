@@ -209,28 +209,7 @@ public class AuthController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
-	@GetMapping("/productMenu2")
-	public ResponseEntity<?> productMenu2() {
-		List<Board> list = boardservice.productMenu2();
-		
-		return new ResponseEntity<>(list, HttpStatus.OK);
-	}
-	
-	@GetMapping("/productMenu3")
-	public ResponseEntity<?> productMenu3() {
-		List<Board> list = boardservice.productMenu3();
-		
-		return new ResponseEntity<>(list, HttpStatus.OK);
-	}
-	
-	@GetMapping("/productMenu4")
-	public ResponseEntity<?> productMenu4() {
-		List<Board> list = boardservice.productMenu4();
-		
-		return new ResponseEntity<>(list, HttpStatus.OK);
-	}
-	
-	@PostMapping("/productCategory")
+	@GetMapping("/productCategory")
 	public ResponseEntity<?> productCategory() {
 		List<Product> list = productservice.productCategory();
 			

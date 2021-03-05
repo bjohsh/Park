@@ -2,13 +2,15 @@
   <div>
      <v-main>
       <v-container>
-       <div class="product_list_text"> 수제천연껌 </div>
-       <div class="product_container_box">
-         <div 
+        <div 
             v-for="product in productMenu1" 
             class="product_box"
+            :key="product.b_idx"
          >
-          <v-btn @click="productDetail2({b_idx: b_idx})">
+       <div class="product_list_text"> {{product.p_category}} </div>
+       <div class="product_container_box">
+         
+          <v-btn @click="productDetail2({b_idx:product.b_idx})">
            <div class="product_box_img"  ></div>
            <div class="product_box_text"> 
              {{ product.b_title }}
@@ -26,17 +28,22 @@
 <script>
 import {mapState} from 'vuex'
 export default {
-  computed: {
-    ...mapState(['productMenu1'])
-  },
-  created() {
-    this.$store.dispatch('productMenu1')
+  data() {
+    return {
+      b_title:null,
+      b_price:null,
+      b_idx:null,
+      p_idx:null
+    }
   },
   methods: {
     productDetail2(payload) {
       console.log(payload)
       this.$store.dispatch("productDetail2", payload)
     }
+  },
+  computed: {
+    ...mapState(["productMenu1"])
   }
 }
 </script>

@@ -119,6 +119,8 @@ import DefaultMenu from '@/components/defaultMenu'
       }else {
         this.Userinfo.User_token = localStorage.getItem("token")
       }
+
+      this.$store.dispatch('productCategory')
     }
   }
 </script>

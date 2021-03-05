@@ -66,31 +66,11 @@
 </delete>
 
 <select id="productMenu1" resultType="Board">
-	SELECT 			product.p_idx, dogboard.b_title, dogboard.b_price
+	SELECT 			product.p_idx, product.p_category, dogboard.b_title, dogboard.b_price, dogboard.b_idx
 	FROM 			product JOIN dogboard
 	ON 				product.p_idx = dogboard.p_idx
-	WHERE 			dogboard.p_idx = 10
+	WHERE 			product.p_idx = dogboard.p_idx
 </select>
 
-<select id="productMenu2" resultType="Board">
-	SELECT 			product.p_idx, dogboard.b_title, dogboard.b_price
-	FROM 			product JOIN dogboard
-	ON 				product.p_idx = dogboard.p_idx
-	WHERE 			dogboard.p_idx = 20
-</select>
-
-<select id="productMenu3" resultType="Board">
-	SELECT 			product.p_idx, dogboard.b_title, dogboard.b_price
-	FROM 			product JOIN dogboard
-	ON 				product.p_idx = dogboard.p_idx
-	WHERE 			dogboard.p_idx = 30
-</select>
-
-<select id="productMenu4" resultType="Board">
-	SELECT 			product.p_idx, dogboard.b_title, dogboard.b_price
-	FROM 			product JOIN dogboard
-	ON 				product.p_idx = dogboard.p_idx
-	WHERE 			dogboard.p_idx = 40
-</select>
 
 </mapper>
