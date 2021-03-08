@@ -8,6 +8,7 @@ import com.Park.example.domain.Product;
 public interface ProductMapper {
 
 	public List<Product> productCategory();
+
 	}
 	
 

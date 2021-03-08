@@ -17,5 +17,6 @@ public class ProductServiceImpl  implements ProductService {
 	public List <Product> productCategory() {
 		return productmapper.productCategory();
 	}
+
 }
 

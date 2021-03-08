@@ -24,9 +24,11 @@
         <v-select
         select="b_category"
           :items="items"
-          v-model="b_category"
+          item-value="p_idx"
+          item-text="b_category"
+          v-model="items"
           return-object
-          label="종류"
+          label="CATEGORY"
         ></v-select>
       </v-col>
 
@@ -44,6 +46,7 @@
       b_id: b_id, 
       b_price: b_price,
       b_category:b_category,
+      p_idx: p_idx,
       b_inventory:b_inventory,
       b_from:b_from
     })">등록하기</v-btn>
@@ -60,15 +63,25 @@ import {mapState} from "vuex"
             b_id : "111",
             b_price: null,
             b_inventory: null,
-            items: ['수제천연껌', '육포&저키', '뼈다귀껌', '사료'],
             b_category:null,
-            b_from:null
+            b_from:null,
+            p_idx: null
         }
     },
     methods: {
         write(payload) {
             this.$store.dispatch("write", payload)
         }
+    },
+    computed: {
+      items() {
+        return [
+          { b_category: '수제천연껌', p_idx: 10},
+          { b_category: '육포 & 저키', p_idx: 20},
+          { b_category: '뼈다귀껌', p_idx: 30},
+          { b_category: '사료', p_idx: 40},
+        ]
+      }
     }
   }
 </script>

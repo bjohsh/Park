@@ -165,7 +165,7 @@ export default new Vuex.Store({
       axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
       axios.get('http://3.36.159.227:9000/api/auth/productPage')
         .then(Response => {
-          console.log(Response.data)
+         
           commit('READ_PRODUCT_PAGE',Response.data)
         })
         .catch(Error => {
@@ -344,7 +344,7 @@ export default new Vuex.Store({
   productMenu1({commit,state},payload) {
     return new Promise((resolve, reject) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
-      axios.get('http://localhost:9000/api/auth/productMenu1', payload)
+      axios.post('http://localhost:9000/api/auth/productMenu1', payload)
         .then(Response => {
           console.log(payload)
           commit('READ_PRODUCT_MENU1',Response.data)

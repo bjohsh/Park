@@ -2,14 +2,15 @@
   <div>
      <v-main>
       <v-container>
-        <div 
+       <!-- <div class="product_list_text"> {{p_category}} </div> -->
+       <div class="product_container_box">
+       
+
+         <div 
             v-for="product in productMenu1" 
             class="product_box"
             :key="product.b_idx"
          >
-       <div class="product_list_text"> {{product.p_category}} </div>
-       <div class="product_container_box">
-         
           <v-btn @click="productDetail2({b_idx:product.b_idx})">
            <div class="product_box_img"  ></div>
            <div class="product_box_text"> 
@@ -51,7 +52,15 @@ export default {
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500&display=swap');
-
+.img_slide_box {
+  width:100%;
+  height: 460px;
+  background-image: url('../assets/main_img.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 5px 3px #818181;
+}
 .product_list_text {
   font-size: 1.5rem;
   color:#B80C00;

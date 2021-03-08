@@ -202,9 +202,10 @@ public class AuthController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
 	
-	@GetMapping("/productMenu1")
-	public ResponseEntity<?> productMenu1() {
-		List<Board> list = boardservice.productMenu1();
+	@PostMapping("/productMenu1")
+	public ResponseEntity<?> productMenu1(@RequestBody Board board) {
+		logger.info(Integer.toString(board.getP_idx()));
+		List<Board> list = boardservice.productMenu1(board.getP_idx());
 		
 		return new ResponseEntity<>(list, HttpStatus.OK);
 	}
@@ -216,9 +217,6 @@ public class AuthController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 		
 	}
-	
-	
-	
 	
 	
 	

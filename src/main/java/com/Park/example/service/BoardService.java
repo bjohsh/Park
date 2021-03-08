@@ -17,7 +17,7 @@ public interface BoardService {
 
 	public void productDelete(int b_idx);
 
-	public List<Board> productMenu1();
+	public List<Board> productMenu1(int p_idx);
 
 
 	}

@@ -5,6 +5,7 @@
 <insert id="boardinsert" parameterType="board">
 	INSERT INTO	dogboard (
 			b_category,
+			p_idx,
 			b_title,
 			b_content,
 			b_id,
@@ -13,6 +14,7 @@
 			b_from
 		) VALUES (
 			#{b_category},
+			#{p_idx},
 			#{b_title},
 			#{b_content},
 			#{b_id},
@@ -65,11 +67,12 @@
 	WHERE			b_idx = #{b_idx}
 </delete>
 
-<select id="productMenu1" resultType="Board">
+<select id="productMenu1" parameterType="int" resultType="Board">
 	SELECT 			product.p_idx, product.p_category, dogboard.b_title, dogboard.b_price, dogboard.b_idx
 	FROM 			product JOIN dogboard
 	ON 				product.p_idx = dogboard.p_idx
-	WHERE 			product.p_idx = dogboard.p_idx
+	WHERE 			1 = 1
+	AND 			product.p_idx = #{p_idx}	
 </select>
 
 

@@ -4,7 +4,7 @@ public class Board {
 	
 
 	private int b_idx;
-	private String p_idx;
+	private int p_idx;
 	private String b_category;
 	private String b_title;
 	private String b_content;
@@ -21,10 +21,11 @@ public class Board {
 	public void setB_idx(int b_idx) {
 		this.b_idx = b_idx;
 	}
-	public String getP_idx() {
+	
+	public int getP_idx() {
 		return p_idx;
 	}
-	public void setP_idx(String p_idx) {
+	public void setP_idx(int p_idx) {
 		this.p_idx = p_idx;
 	}
 	public String getB_category() {

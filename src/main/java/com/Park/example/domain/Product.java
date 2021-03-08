@@ -2,14 +2,15 @@ package com.Park.example.domain;
 
 public class Product {
 
-	private String p_idx;
+	private int p_idx;
 	private String p_category;
 	
 	
-	public String getP_idx() {
+	
+	public int getP_idx() {
 		return p_idx;
 	}
-	public void setP_idx(String p_idx) {
+	public void setP_idx(int p_idx) {
 		this.p_idx = p_idx;
 	}
 	public String getP_category() {
