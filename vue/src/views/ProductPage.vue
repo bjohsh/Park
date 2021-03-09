@@ -83,7 +83,6 @@ import {mapState, mapActions} from 'vuex'
           value: 'b_idx',
         },
         { text: 'image', value: '' },
-        { text: 'category', value: 'b_category' },
         { text: 'name', value: 'b_title' },
         { text: 'content', value: 'b_content' },
         { text: 'price', value: 'b_price' },

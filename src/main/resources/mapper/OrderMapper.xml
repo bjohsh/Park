@@ -52,5 +52,7 @@
 	GROUP BY		o_ym_date
 	ORDER BY 	o_ym_date desc
 </select>
+
+
 </mapper>
 	

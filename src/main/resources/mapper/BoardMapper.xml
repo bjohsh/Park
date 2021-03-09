@@ -4,7 +4,6 @@
 
 <insert id="boardinsert" parameterType="board">
 	INSERT INTO	dogboard (
-			b_category,
 			p_idx,
 			b_title,
 			b_content,
@@ -13,7 +12,6 @@
 			b_inventory,
 			b_from
 		) VALUES (
-			#{b_category},
 			#{p_idx},
 			#{b_title},
 			#{b_content},
@@ -25,7 +23,6 @@
 </insert>		
 <select id="productPage" resultType="Board">
 	SELECT			b_idx				as b_idx,
-					b_category			as b_category,
 					b_title				as b_title,
 					b_content			as b_content,
 					b_price				as b_price,
@@ -37,7 +34,6 @@
 <update id="productEdit" parameterType="Board">
 	UPDATE			dogboard
 	SET					b_title = #{b_title},
-						b_category = #{b_category},
 						b_content = #{b_content},
 						b_price = #{b_price},
 						b_inventory = #{b_inventory},
@@ -48,7 +44,6 @@
 
 <select id="productDetail" parameterType="int" resultType="Board">
 	SELECT			b_idx				as b_idx,
-					b_category			as b_category,
 					b_title				as b_title,
 					b_content			as b_content,
 					b_price				as b_price,

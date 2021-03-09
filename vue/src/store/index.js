@@ -163,7 +163,7 @@ export default new Vuex.Store({
   productPage({commit,state}) {
     return new Promise((resolve, reject) => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${state.Userinfo.User_token}`
-      axios.get('http://3.36.159.227:9000/api/auth/productPage')
+      axios.get('http://localhost:9000/api/auth/productPage')
         .then(Response => {
          
           commit('READ_PRODUCT_PAGE',Response.data)
@@ -191,7 +191,7 @@ export default new Vuex.Store({
   write({commit},payload) {
     console.log(payload)
     return new Promise((resolve, reject) => {
-      axios.post('http://3.36.159.227:9000/api/auth/boardinsert',payload)
+      axios.post('http://localhost:9000/api/auth/boardinsert',payload)
         .then(Response => {
           console.log(Response.data)
           if(Response.data === "success") {
@@ -219,7 +219,6 @@ export default new Vuex.Store({
         localStorage.removeItem("edit_b_content",Response.data.b_content)
         localStorage.removeItem("edit_b_price",Response.data.b_price)
         localStorage.removeItem("edit_b_inventory",Response.data.b_inventory)
-        localStorage.removeItem("edit_b_category",Response.data.b_category)
         localStorage.removeItem("eidt_b_from",Response.data.b_from)
         console.log('localstorage edit remove?',localStorage.getItem("edit_b_idx"))
         Route.push("/productpage")
@@ -243,7 +242,6 @@ export default new Vuex.Store({
           localStorage.setItem("edit_b_content",Response.data.b_content)
           localStorage.setItem("edit_b_price",Response.data.b_price)
           localStorage.setItem("edit_b_inventory",Response.data.b_inventory)
-          localStorage.setItem("edit_b_category",Response.data.b_category)
           localStorage.setItem("edit_b_from",Response.data.b_from)
 
 
@@ -267,7 +265,6 @@ export default new Vuex.Store({
           localStorage.setItem("order_b_content",Response.data.b_content)
           localStorage.setItem("order_b_price",Response.data.b_price)
           localStorage.setItem("order_b_inventory",Response.data.b_inventory)
-          localStorage.setItem("order_b_category",Response.data.b_category)
           localStorage.setItem("order_b_from",Response.data.b_from)
 
 
