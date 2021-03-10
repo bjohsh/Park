@@ -1,10 +1,20 @@
 package com.Park.example.controller;
 
 
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,8 +36,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.Park.example.config.JwtUtils;
 import com.Park.example.domain.Board;
 import com.Park.example.domain.Order;
@@ -217,6 +230,42 @@ public class AuthController {
 		return new ResponseEntity<>(list, HttpStatus.OK);
 		
 	}
+	
+	@RequestMapping(value="/upload", method=RequestMethod.POST)
+	public ResponseEntity<?> upload(@RequestParam("file") MultipartFile multipartFile) {
+		String path="C:\\Users\\l10\\Documents\\work\\Park\\src\\main\\resources\\static\\image";
+		String thumbPath = path +"thumb/";
+		String filename = multipartFile.getOriginalFilename();
+		String ext = filename.substring(filename.lastIndexOf(".")+1);
+		
+		File file = new File(path + filename);
+		File thumbFile = new File(thumbPath + filename);
+		try {
+			//원본파일 저장
+			InputStream input = multipartFile.getInputStream();
+			FileUtils.copyInputStreamToFile(input, file);
+			
+			//썸네일 생성
+			BufferedImage imageBuf = ImageIO .read(file);
+			int fixWidth = 500;
+			double ratio = imageBuf.getWidth() / (double)fixWidth;
+			int thumbWidth = fixWidth;
+			int thumbHeight = (int)(imageBuf.getHeight() / ratio);
+			BufferedImage thumbImageBf = new BufferedImage(thumbWidth, thumbHeight,BufferedImage.TYPE_3BYTE_BGR);
+			Graphics2D g = thumbImageBf.createGraphics();
+			Image thumbImage = imageBuf.getScaledInstance(thumbWidth, thumbHeight, Image.SCALE_SMOOTH);
+			g.drawImage(thumbImage, 0, 0, thumbWidth, thumbHeight, null);
+			g.dispose();
+			ImageIO.write(thumbImageBf, ext,thumbFile);
+		} catch (IOException e) {
+			FileUtils.deleteQuietly(file);
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>("success", HttpStatus.OK);
+		
+	}
+	
+	
 	
 	
 	
