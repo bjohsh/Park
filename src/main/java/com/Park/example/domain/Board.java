@@ -9,10 +9,9 @@ public class Board {
 	private String b_content;
 	private String b_id;
 	private int b_price;
-	private String b_datetime;
-	private String b_click;
 	private String b_from;
 	private int b_inventory;
+	private String b_photo;
 	
 	public int getB_idx() {
 		return b_idx;
@@ -52,19 +51,6 @@ public class Board {
 	public void setB_price(int b_price) {
 		this.b_price = b_price;
 	}
-	public String getB_datetime() {
-		return b_datetime;
-	}
-	public void setB_datetime(String b_datetime) {
-		this.b_datetime = b_datetime;
-	}
-	public String getB_click() {
-		return b_click;
-	}
-	public void setB_click(String b_click) {
-		this.b_click = b_click;
-	}
-	
 	public String getB_from() {
 		return b_from;
 	}
@@ -76,6 +62,12 @@ public class Board {
 	}
 	public void setB_inventory(int b_inventory) {
 		this.b_inventory = b_inventory;
+	}
+	public String getB_photo() {
+		return b_photo;
+	}
+	public void setB_photo(String b_photo) {
+		this.b_photo = b_photo;
 	}
 	
 	

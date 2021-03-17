@@ -10,7 +10,8 @@
 			b_id,
 			b_price,
 			b_inventory,
-			b_from
+			b_from,
+			b_photo
 		) VALUES (
 			#{p_idx},
 			#{b_title},
@@ -19,6 +20,7 @@
 			#{b_price},
 			#{b_inventory},
 			#{b_from}	
+			#{b_photo}
 		)
 </insert>		
 <select id="productPage" resultType="Board">
@@ -26,7 +28,8 @@
 					b_title				as b_title,
 					b_content			as b_content,
 					b_price				as b_price,
-					b_inventory			as b_inventory
+					b_inventory			as b_inventory,
+					b_photo				as b_photo
 	
 	FROM			dogboard
 </select>
@@ -38,7 +41,8 @@
 						b_price = #{b_price},
 						b_inventory = #{b_inventory},
 						b_from = #{b_from},
-						b_id = #{b_id}
+						b_id = #{b_id},
+						b_photo = #{b_photo}
 	WHERE			b_idx = #{b_idx}
 </update>
 
@@ -63,7 +67,7 @@
 </delete>
 
 <select id="productMenu1" parameterType="int" resultType="Board">
-	SELECT 			product.p_idx, product.p_category, dogboard.b_title, dogboard.b_price, dogboard.b_idx
+	SELECT 			product.p_idx, product.p_category, dogboard.b_title, dogboard.b_price, dogboard.b_idx, dogboard.b_photo
 	FROM 			product JOIN dogboard
 	ON 				product.p_idx = dogboard.p_idx
 	WHERE 			1 = 1
